@@ -46,7 +46,7 @@ print("Compiling assembly...")
 run(CC + " " + sourceRecursive('source/**/*.s') + COMPILER_ARGS)
 
 print("Linking...")
-run(LD + " " + LIBPATH + " -pie --gc-sections " + sourceRecursive("*.o") + "-T 3ds.ld -lg -lgcc -lctru -lsysbase -lc")
+run(LD + " " + LIBPATH + " -pie --gc-sections " + sourceRecursive("*.o") + "-T 3ds.ld -lctru -lg -lgcc -lsysbase -lc")
 
 print("Relocating object files to /obj...")
 run("cp -r *.o obj/ ")
