@@ -78,6 +78,13 @@ void setupIRMem()
     }
     nsDbgPrint("[IRTM] ir:rst handle: %08x\n", irrstHandle);
 
+    // Initialize ir:rst
+    if (R_FAILED(ret = IRRST_Initialize(10, 0)))
+    {
+        nsDbgPrint("[IRTM] Failed to initialize ir:rst with error code %08x\n", ret);
+        goto cleanupHandle;
+    }
+
     if (R_FAILED(ret = IRRST_GetMemHandle(&irrstMemHandle)))
     {
         nsDbgPrint("[IRTM] Failed to get ir:rst shared memory handle with error code %08x\n", ret);
