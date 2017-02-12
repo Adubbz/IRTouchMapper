@@ -9,7 +9,7 @@
 #include <3ds/services/irrst.h>
 #include "global.h"
 
-#define SHARED_MEM_LOC 0x26B000
+#define SHARED_MEM_LOC 0x36B000
 
 u32 threadStack[0x1000];
 
@@ -66,6 +66,7 @@ void gamePluginEntry()
 void setupIRMem()
 {
     u32 ret;
+
     if (R_FAILED(ret = srvInit()))
     {
         nsDbgPrint("[IRTM] Failed to initialize srv with error code %08x\n", ret);
